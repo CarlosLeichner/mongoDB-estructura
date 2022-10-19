@@ -1,0 +1,59 @@
+db.createCollection("proveedor", 
+{
+    "id": {$int},
+    "nombre": "",
+    "telefono":"",
+    "fax": "",
+    "nif":"",
+    "direccion":{
+        "calle":"",
+        "numero":"",
+        "piso": "",
+        "puerta":"",
+        "ciudad":"",
+        "cp": "",
+        "pais":""
+    }
+
+})
+db.createCollection("marca",
+{
+    "id_marca":{$int},
+    "nombre": "",
+    "proveedor.id_proveedor": "",
+})
+db.createCollection("gafa",
+{
+    "id_gafa":{$int},
+    "graduacion_cristal":"",
+    "color_montura":"",
+    "color_vidrio":"",
+    "precio":"",
+    "tipo_montura":{
+        "flotante":"",
+        "pasta":"",
+        "metalica":""
+    },
+    "proveedor.id_proveedor": "",
+    "marca.id_marca":""
+}
+db.createCollection("cliente",
+{
+    "id_cliente":{$int},
+    "nombre":"",
+    "direccion":"",
+    "telefono":"",
+    "email":"",
+    "fecha_registro":"",
+    "recomendacion_id_cliente":"",
+
+}
+db.createCollection("venta",
+{
+    "id_venta":{$int},
+    "nombre_empleado":"",
+    "fecha_venta":"",
+    "gafa.id_gafa":"",
+    "cliente.id_cliente":"",
+    
+}

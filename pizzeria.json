@@ -1,0 +1,72 @@
+db.createCollection("cliente",
+{
+    "id_cliente":{$int},
+    "nombre":"",
+    "apellido":"",
+    "direccion":{
+        "calle":"",
+        "cp":"",
+        "localidad":"",
+        "provincia":""},
+    "telefono":""
+}
+db.createCollection("pedido",
+{
+    "id_pedido":{},
+    "tipo_pedido":{
+        "domicilio":{        
+            "fecha_hora":"",
+        },
+        "tienda":""
+    },
+    "precio":"",
+    "total_productos":"",
+    "fecha_hora":"",
+    "cliente.id_cliente":"",
+    "tienda.id_tienda":""
+}
+db.createCollection("tienda",
+{
+    "id_tienda":{$int},
+    "direccion":{
+        "calle":"",
+        "cp":"",
+        "localidad":"",
+        "provincia":""},
+}
+db.createCollection("productos",
+{
+    "id_productos":{$int},
+    "nombre":"",
+    "descripcion":"",
+    "precio":"",
+    "imagen":"",
+    "pedido.id_pedido":"",
+    "cliente.id_cliente":""
+}
+db.createCollection("empleado",
+{
+    "id_empleado":{$int},
+    "nombre":"",
+    "apellido":"",
+    "nif":"",
+    "telefono":"",
+    "tipo_empleado":{
+        "cocinero":"",
+        "repartidor":""
+    },
+    "tienda.id_tienda":"",
+
+}
+db.createCollection("pizza",
+{
+    "id_pizza":{$int},
+    "productos.id_productos":"",
+    "pedido.id_pedido":"",
+    "cliente.id_cliente":"",
+    "categoria":{
+        "id_categoria":{$int},
+        "nombre":"",
+
+    }
+}
